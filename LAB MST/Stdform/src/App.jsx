@@ -15,27 +15,84 @@ export default function StudentForm() {
   };
 
   const styles={
-    outer:{display:"flex",justifyContent:"center",alignItems:"center",height:"100vh",fontFamily:"Arial,sans-serif"},
-    container:{padding:"20px",width:"400px",textAlign:"center",border:"1px solid #ccc",borderRadius:"10px",boxShadow:"0 4px 8px rgba(0,0,0,0.1)"},
-    input:{width:"100%",padding:"10px",marginBottom:"10px",borderRadius:"5px",border:"1px solid #ccc",fontSize:"1rem"},
-    button:{padding:"10px 20px",border:"none",borderRadius:"5px",backgroundColor:"blue",color:"white",cursor:"pointer",fontSize:"1rem"},
-    table:{width:"100%",borderCollapse:"collapse",marginTop:"20px"},
-    th:{border:"1px solid #ccc",padding:"10px",backgroundColor:"#f2f2f2"},
-    td:{border:"1px solid #ccc",padding:"10px",textAlign:"center"}
+    outer:{
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center",
+      height:"100vh",
+      width:"100vw",
+      fontFamily:"Arial, sans-serif",
+      backgroundColor:"#222"
+    },
+    container:{
+      padding:"30px",
+      width:"400px",
+      maxWidth:"90%",
+      textAlign:"center",
+      border:"1px solid #ccc",
+      borderRadius:"12px",
+      boxShadow:"0 6px 12px rgba(0,0,0,0.2)",
+      backgroundColor:"#333",
+      boxSizing:"border-box"
+    },
+    form:{
+      display:"flex",
+      flexDirection:"column",
+      gap:"12px"
+    },
+    input:{
+      width:"100%",
+      padding:"12px",
+      borderRadius:"6px",
+      border:"1px solid #aaa",
+      fontSize:"1rem",
+      boxSizing:"border-box",
+      backgroundColor:"#444",
+      color:"white"
+    },
+    button:{
+      padding:"12px 20px",
+      border:"none",
+      borderRadius:"6px",
+      backgroundColor:"blue",
+      color:"white",
+      cursor:"pointer",
+      fontSize:"1rem",
+      transition:"0.3s"
+    },
+    table:{
+      width:"100%",
+      borderCollapse:"collapse",
+      marginTop:"20px",
+      backgroundColor:"white"
+    },
+    th:{
+      border:"1px solid #ccc",
+      padding:"10px",
+      backgroundColor:"#080808ff",
+      wordBreak:"break-word",
+      maxWidth:"120px"
+    },
+    td:{
+      border:"1px solid #ccc",
+      backgroundColor:"#080808ff",
+      padding:"10px",
+      textAlign:"center",
+      wordBreak:"break-word",
+      maxWidth:"120px"
+    }
   };
 
   return (
     <div style={styles.outer}>
       <div style={styles.container}>
-        <h1 style={{marginBottom:"20px"}}>Student Registration</h1>
-
-        <form onSubmit={handleSubmit} style={{marginBottom:"20px"}}>
+        <h1 style={{marginBottom:"20px",color:"white"}}>Student Registration</h1>
+        <form onSubmit={handleSubmit} style={styles.form}>
           <input type="text" name="name" placeholder="Enter Name" value={formData.name} onChange={handleChange} required style={styles.input}/>
           <input type="email" name="email" placeholder="Enter Email" value={formData.email} onChange={handleChange} required style={styles.input}/>
           <input type="text" name="course" placeholder="Enter Course" value={formData.course} onChange={handleChange} required style={styles.input}/>
           <button type="submit" style={styles.button}>Add Student</button>
         </form>
-
         {students.length>0 && (
           <table style={styles.table}>
             <thead>
