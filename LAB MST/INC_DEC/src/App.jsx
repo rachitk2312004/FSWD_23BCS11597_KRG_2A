@@ -18,8 +18,6 @@ export default function App(){
   const reset=()=>{
     setCount(0);
   }
-
-  // Full screen styles for outer div
   const outerStyle={
     display:"flex",
     justifyContent:"center",
